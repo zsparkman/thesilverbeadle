@@ -47,7 +47,7 @@ export default function AboutPage() {
           The Alaska part isn&rsquo;t a marketing line — it&rsquo;s the studio
           light, the long winters that lend themselves to slow, careful work,
           and the way mineral country trains an eye for what stones can do.
-          When I cut a piece, I&rsquo;m thinking about geology: where it formed,
+          When I create a piece, I&rsquo;m thinking about geology: where it formed,
           what trapped the color, what mood it carries.
         </p>
         <p>
