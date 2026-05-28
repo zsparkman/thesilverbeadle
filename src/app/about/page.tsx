@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Fireweed } from "@/components/Fireweed";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,9 +14,12 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <article className="mx-auto max-w-3xl px-5 py-20 sm:px-8 sm:py-24">
-      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-accent">
-        About
-      </p>
+      <div className="flex items-center gap-3">
+        <Fireweed className="h-8 w-3 shrink-0" />
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-accent">
+          About
+        </p>
+      </div>
       <h1 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
         Made by one pair of hands, in a small studio at the edge of Alaska.
       </h1>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ProductGrid } from "@/components/ProductGrid";
 import { ContactForm } from "@/components/ContactForm";
+import { AlaskaHero } from "@/components/AlaskaHero";
 import { featuredProducts, materials } from "@/data/products";
 import { site } from "@/lib/site";
 
@@ -35,8 +36,6 @@ const organizationLd = {
   ],
 };
 
-const HERO_IMAGE = "/images/products/moss-agate-earrings-w-loop.jpg";
-
 export default function HomePage() {
   return (
     <>
@@ -45,47 +44,32 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
       />
 
-      {/* HERO */}
-      <section className="relative isolate overflow-hidden">
-        <div className="relative aspect-[16/10] w-full sm:aspect-[16/8] md:aspect-[21/9]">
-          <Image
-            src={HERO_IMAGE}
-            alt="Hand wire-wrapped moss agate earrings catching warm studio light"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-stone-ink/85 via-stone-ink/35 to-stone-ink/10" />
-          <div className="absolute inset-0 flex items-end">
-            <div className="mx-auto w-full max-w-6xl px-5 pb-12 sm:px-8 sm:pb-16 md:pb-20">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-bg/80">
-                Chugiak, Alaska
-              </p>
-              <h1 className="mt-3 max-w-3xl font-serif text-4xl font-light leading-[1.05] text-stone-bg sm:text-5xl md:text-6xl lg:text-7xl">
-                {site.tagline}
-              </h1>
-              <p className="mt-4 max-w-xl text-base text-stone-bg/85 sm:text-lg">
-                {site.subTagline}
-              </p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link
-                  href="/shop"
-                  className="rounded-sm bg-stone-bg px-5 py-3 text-sm font-medium tracking-wide text-stone-ink transition hover:bg-white"
-                >
-                  Shop the Collection
-                </Link>
-                <Link
-                  href="/about"
-                  className="rounded-sm border border-stone-bg/70 px-5 py-3 text-sm font-medium tracking-wide text-stone-bg transition hover:bg-stone-bg/10"
-                >
-                  Read the Story
-                </Link>
-              </div>
-            </div>
-          </div>
+      {/* HERO — illustrated Alaskan landscape */}
+      <AlaskaHero>
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-bg/90">
+          Chugiak, Alaska
+        </p>
+        <h1 className="mt-3 max-w-3xl font-serif text-4xl font-light leading-[1.05] text-stone-bg sm:text-5xl md:text-6xl lg:text-7xl">
+          {site.tagline}
+        </h1>
+        <p className="mt-4 max-w-xl text-base text-stone-bg/90 sm:text-lg">
+          {site.subTagline}
+        </p>
+        <div className="mt-7 flex flex-wrap gap-3">
+          <Link
+            href="/shop"
+            className="rounded-sm bg-stone-bg px-5 py-3 text-sm font-medium tracking-wide text-stone-ink transition hover:bg-white"
+          >
+            Shop the Collection
+          </Link>
+          <Link
+            href="/about"
+            className="rounded-sm border border-stone-bg/70 px-5 py-3 text-sm font-medium tracking-wide text-stone-bg transition hover:bg-stone-bg/10"
+          >
+            Read the Story
+          </Link>
         </div>
-      </section>
+      </AlaskaHero>
 
       {/* STORY STRIP */}
       <section className="mx-auto max-w-5xl px-5 py-20 sm:px-8 sm:py-24">
