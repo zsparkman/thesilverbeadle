@@ -1,38 +1,40 @@
+import Link from "next/link";
 import type { Metadata } from "next";
-import { ProductGrid } from "@/components/ProductGrid";
-import { byCategory } from "@/data/products";
 
 export const metadata: Metadata = {
-  title: "Sterling Silver Stone Bracelets",
+  title: "Bracelets — Coming Soon",
   description:
-    "One-of-a-kind bracelets in amethyst, turquoise, moss agate, and jasper — wire-wrapped in sterling silver in Chugiak, Alaska.",
+    "Bracelets are in the works. Earrings are the current collection — moss agate, fluorite, jasper, chrysocolla, and more.",
   alternates: { canonical: "/bracelets" },
 };
 
 export default function BraceletsPage() {
-  const items = byCategory("bracelets");
   return (
-    <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+    <div className="mx-auto max-w-3xl px-5 py-24 text-center sm:px-8">
       <p className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-accent">
         Collection
       </p>
       <h1 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
-        Bracelets
+        Bracelets — coming soon
       </h1>
-      <p className="mt-4 max-w-prose text-stone-ink-soft">
-        Strung and wire-wrapped bracelets in semi-precious stones. Each piece
-        below is one of a kind.
+      <p className="mt-5 text-stone-ink-soft">
+        The studio is building out a bracelet line. Until they&rsquo;re ready,
+        explore the earring collection — every pair is one of a kind.
       </p>
-      {items.length > 0 ? (
-        <div className="mt-12">
-          <ProductGrid products={items} prioritizeFirst />
-        </div>
-      ) : (
-        <p className="mt-12 text-stone-ink-soft">
-          New pieces are listed soon — follow along on Instagram for studio
-          updates.
-        </p>
-      )}
+      <div className="mt-8 flex flex-wrap justify-center gap-3">
+        <Link
+          href="/earrings"
+          className="rounded-sm bg-stone-ink px-5 py-3 text-sm font-medium tracking-wide text-stone-bg hover:bg-stone-accent"
+        >
+          See the Earrings
+        </Link>
+        <Link
+          href="/#contact"
+          className="rounded-sm border border-stone-ink/30 px-5 py-3 text-sm font-medium tracking-wide hover:bg-stone-ink/5"
+        >
+          Get in touch
+        </Link>
+      </div>
     </div>
   );
 }

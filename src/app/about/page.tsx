@@ -22,8 +22,8 @@ export default function AboutPage() {
 
       <div className="relative mt-10 aspect-[4/5] w-full max-w-md overflow-hidden rounded-sm">
         <Image
-          src="/images/story-portrait.svg"
-          alt="Maker portrait placeholder — solo artisan at her studio bench in Chugiak, Alaska"
+          src="/images/products/silver-wrapped-ivory-fossilized-coral-drops.jpeg"
+          alt="Studio work — silver-wrapped fossilized coral drop earrings"
           fill
           sizes="(min-width: 768px) 40vw, 90vw"
           className="object-cover"

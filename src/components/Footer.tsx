@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
@@ -6,7 +7,16 @@ export function Footer() {
     <footer className="mt-24 border-t border-stone-line/70 bg-stone-bg">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-3">
         <div>
-          <p className="font-serif text-xl tracking-tight">{site.name}</p>
+          <div className="flex items-center gap-3">
+            <Image
+              src="/images/logo.png"
+              alt=""
+              width={44}
+              height={44}
+              className="h-10 w-10"
+            />
+            <p className="font-serif text-xl tracking-tight">{site.name}</p>
+          </div>
           <p className="mt-3 max-w-sm text-sm text-stone-ink-soft">
             {site.description}
           </p>
@@ -24,11 +34,6 @@ export function Footer() {
             <li>
               <Link href="/earrings" className="hover:text-stone-accent">
                 Earrings
-              </Link>
-            </li>
-            <li>
-              <Link href="/bracelets" className="hover:text-stone-accent">
-                Bracelets
               </Link>
             </li>
             <li>

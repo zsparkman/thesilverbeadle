@@ -47,13 +47,20 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
-    images: [{ url: "/images/hero.svg", width: 2400, height: 1400, alt: site.name }],
+    images: [
+      {
+        url: "/images/products/moss-agate-earrings-w-loop.jpg",
+        width: 1200,
+        height: 1200,
+        alt: `${site.name} — handcrafted stone earrings`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
-    images: ["/images/hero.svg"],
+    images: ["/images/products/moss-agate-earrings-w-loop.jpg"],
   },
   alternates: { canonical: "/" },
 };

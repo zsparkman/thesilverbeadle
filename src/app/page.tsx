@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ProductGrid } from "@/components/ProductGrid";
 import { ContactForm } from "@/components/ContactForm";
-import { featuredProducts, materials, stoneTones } from "@/data/products";
+import { featuredProducts, materials } from "@/data/products";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -19,6 +19,7 @@ const organizationLd = {
   url: site.url,
   email: site.email,
   description: site.description,
+  logo: `${site.url}/images/logo.png`,
   address: {
     "@type": "PostalAddress",
     streetAddress: "P.O. Box 671610",
@@ -34,6 +35,8 @@ const organizationLd = {
   ],
 };
 
+const HERO_IMAGE = "/images/products/moss-agate-earrings-w-loop.jpg";
+
 export default function HomePage() {
   return (
     <>
@@ -46,14 +49,14 @@ export default function HomePage() {
       <section className="relative isolate overflow-hidden">
         <div className="relative aspect-[16/10] w-full sm:aspect-[16/8] md:aspect-[21/9]">
           <Image
-            src="/images/hero.svg"
-            alt="Hand-wrapped stone jewelry catching warm light"
+            src={HERO_IMAGE}
+            alt="Hand wire-wrapped moss agate earrings catching warm studio light"
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-stone-ink/85 via-stone-ink/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-ink/85 via-stone-ink/35 to-stone-ink/10" />
           <div className="absolute inset-0 flex items-end">
             <div className="mx-auto w-full max-w-6xl px-5 pb-12 sm:px-8 sm:pb-16 md:pb-20">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-bg/80">
@@ -95,11 +98,11 @@ export default function HomePage() {
               One pair of hands, in a small studio at the edge of Alaska.
             </h2>
             <p className="mt-5 max-w-prose text-stone-ink-soft">
-              I choose stones by feel — for the weight of an amethyst geode
-              wedge, the green of a moss agate that looks like a frozen forest,
-              the way fluorite bands purple into clear. Each piece is wire-
-              wrapped by hand in sterling silver, and no two are alike, because
-              no two stones are alike.
+              I choose stones by feel — for the weight of a banded agate, the
+              green of a moss agate that looks like a frozen forest, the way
+              fluorite bands purple into clear. Each pair is wire-wrapped by
+              hand in sterling silver, and no two are alike, because no two
+              stones are alike.
             </p>
             <Link
               href="/about"
@@ -110,8 +113,8 @@ export default function HomePage() {
           </div>
           <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-sm">
             <Image
-              src="/images/story-portrait.svg"
-              alt="Maker portrait placeholder — solo artisan at her studio bench"
+              src="/images/products/silver-wrapped-ivory-fossilized-coral-drops.jpeg"
+              alt="Detail of silver-wrapped fossilized coral drop earrings"
               fill
               sizes="(min-width: 768px) 40vw, 80vw"
               className="object-cover"
@@ -120,51 +123,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* COLLECTIONS */}
+      {/* COLLECTION — single card for now (bracelets coming later) */}
       <section className="mx-auto max-w-6xl px-5 pb-8 sm:px-8" aria-labelledby="collections">
         <h2 id="collections" className="font-serif text-3xl leading-tight sm:text-4xl">
-          The Collections
+          The Collection
         </h2>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <Link
-            href="/earrings"
-            className="group relative block aspect-[5/4] overflow-hidden rounded-sm"
-          >
-            <Image
-              src="/images/collection-earrings.svg"
-              alt="Earrings collection — amethyst, moss agate, jasper, fluorite drops"
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-ink/75 via-stone-ink/10 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-stone-bg/80">
-                Collection
-              </p>
-              <p className="mt-2 font-serif text-3xl text-stone-bg">Earrings →</p>
-            </div>
-          </Link>
-          <Link
-            href="/bracelets"
-            className="group relative block aspect-[5/4] overflow-hidden rounded-sm"
-          >
-            <Image
-              src="/images/collection-bracelets.svg"
-              alt="Bracelets collection — turquoise, amethyst, moss agate strung in sterling silver"
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-ink/75 via-stone-ink/10 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-stone-bg/80">
-                Collection
-              </p>
-              <p className="mt-2 font-serif text-3xl text-stone-bg">Bracelets →</p>
-            </div>
-          </Link>
-        </div>
+        <Link
+          href="/earrings"
+          className="group relative mt-8 block aspect-[16/9] overflow-hidden rounded-sm"
+        >
+          <Image
+            src="/images/products/labradorite-leaf-earrings.jpeg"
+            alt="Earrings collection — labradorite leaf drops"
+            fill
+            sizes="(min-width: 1024px) 80vw, 100vw"
+            className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-ink/80 via-stone-ink/15 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-stone-bg/80">
+              Collection
+            </p>
+            <p className="mt-2 font-serif text-3xl text-stone-bg sm:text-4xl">
+              Earrings →
+            </p>
+          </div>
+        </Link>
       </section>
 
       {/* FEATURED — only renders when data exists */}
@@ -200,22 +184,19 @@ export default function HomePage() {
             A short field guide
           </h2>
           <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {materials.map((m) => {
-              const tone = stoneTones[m.stone];
-              return (
-                <div key={m.stone}>
-                  <div
-                    className="h-1.5 w-12 rounded-full"
-                    style={{ backgroundColor: tone.hex }}
-                    aria-hidden
-                  />
-                  <h3 className="mt-4 font-serif text-xl">{m.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-stone-ink-soft">
-                    {m.blurb}
-                  </p>
-                </div>
-              );
-            })}
+            {materials.map((m) => (
+              <div key={m.title}>
+                <div
+                  className="h-1.5 w-12 rounded-full"
+                  style={{ backgroundColor: m.toneHex }}
+                  aria-hidden
+                />
+                <h3 className="mt-4 font-serif text-xl">{m.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-stone-ink-soft">
+                  {m.blurb}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -251,14 +232,21 @@ export default function HomePage() {
           </div>
         </div>
         <div className="mt-10 grid grid-cols-3 gap-3 sm:grid-cols-6">
-          {[1, 2, 3, 4, 5, 6].map((n) => (
+          {[
+            "tiger-iron-drop-earrings.jpeg",
+            "fluorite-barrel-drop-earrings.jpeg",
+            "rhodochrosite-strawberry-thunderstorm-earrings.jpeg",
+            "chrysocolla-water-drop-clover-earrings.jpeg",
+            "silver-wrapped-amazonite-tie-earrings.jpeg",
+            "ocean-jasper-bloodstone-faceted-drops.jpeg",
+          ].map((file, i) => (
             <div
-              key={n}
+              key={file}
               className="relative aspect-square overflow-hidden rounded-sm bg-stone-line"
             >
               <Image
-                src={`/images/social-${n}.svg`}
-                alt="Studio + behind-the-scenes placeholder — replace with Instagram/TikTok content"
+                src={`/images/products/${file}`}
+                alt={`Studio shot ${i + 1} — handcrafted stone earrings`}
                 fill
                 sizes="(min-width: 640px) 16vw, 33vw"
                 className="object-cover"
