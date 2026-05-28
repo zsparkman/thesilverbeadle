@@ -4,7 +4,8 @@ import type { Metadata } from "next";
 import { ProductGrid } from "@/components/ProductGrid";
 import { ContactForm } from "@/components/ContactForm";
 import { AlaskaHero } from "@/components/AlaskaHero";
-import { featuredProducts, materials } from "@/data/products";
+import { materials } from "@/data/products";
+import { getFeaturedProducts } from "@/lib/products";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -36,7 +37,8 @@ const organizationLd = {
   ],
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const featuredProducts = await getFeaturedProducts();
   return (
     <>
       <script

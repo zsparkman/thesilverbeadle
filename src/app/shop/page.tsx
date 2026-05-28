@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ProductGrid } from "@/components/ProductGrid";
-import { products } from "@/data/products";
+import { getProducts } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Shop the Collection",
@@ -9,7 +9,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/shop" },
 };
 
-export default function ShopPage() {
+export default async function ShopPage() {
+  const products = await getProducts();
   return (
     <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
       <p className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-accent">

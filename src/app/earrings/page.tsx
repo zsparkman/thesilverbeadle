@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ProductGrid } from "@/components/ProductGrid";
-import { byCategory } from "@/data/products";
+import { getByCategory } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Handcrafted Stone Earrings",
@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/earrings" },
 };
 
-export default function EarringsPage() {
-  const items = byCategory("earrings");
+export default async function EarringsPage() {
+  const items = await getByCategory("earrings");
   return (
     <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
       <p className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-accent">

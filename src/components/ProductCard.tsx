@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Product } from "@/data/products";
 import { priceFormat, site } from "@/lib/site";
+import { AddToCartButton } from "./AddToCartButton";
 
 type Props = {
   product: Product;
@@ -43,15 +43,7 @@ export function ProductCard({ product, priority }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productLd) }}
       />
-      <Link
-        href="/shop"
-        aria-label={
-          sold
-            ? `${product.name}, sold`
-            : `${product.name}, ${product.price != null ? priceFormat(product.price) : ""}`
-        }
-        className="relative block aspect-[4/5] overflow-hidden rounded-sm bg-stone-line"
-      >
+      <div className="relative block aspect-[4/5] overflow-hidden rounded-sm bg-stone-line">
         <Image
           src={product.image}
           alt={product.alt}
@@ -67,7 +59,7 @@ export function ProductCard({ product, priority }: Props) {
             Sold
           </span>
         )}
-      </Link>
+      </div>
       <div className="mt-3 flex items-start justify-between gap-3">
         <div className="min-w-0">
           <h3 className="font-serif text-base leading-snug text-stone-ink">
@@ -89,6 +81,9 @@ export function ProductCard({ product, priority }: Props) {
             </span>
           )}
         </p>
+      </div>
+      <div className="mt-3">
+        <AddToCartButton product={product} size="sm" className="w-full" />
       </div>
     </article>
   );

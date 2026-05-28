@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CartIndicator } from "./CartIndicator";
 import { site } from "@/lib/site";
 
 const links = [
@@ -31,7 +32,7 @@ export function Nav() {
           </span>
         </Link>
         <nav aria-label="Primary">
-          <ul className="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-stone-ink-soft sm:gap-x-7">
+          <ul className="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-stone-ink-soft sm:gap-x-6">
             {links.map((l) => (
               <li key={l.href}>
                 <Link
@@ -42,6 +43,9 @@ export function Nav() {
                 </Link>
               </li>
             ))}
+            <li>
+              <CartIndicator />
+            </li>
           </ul>
         </nav>
       </div>

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { CartProvider } from "@/lib/cart/CartContext";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -85,9 +86,11 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Nav />
-        <main id="main">{children}</main>
-        <Footer />
+        <CartProvider>
+          <Nav />
+          <main id="main">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );
