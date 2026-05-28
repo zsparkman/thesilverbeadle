@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+// EASTER EGG — delete this import + the <ChickenSnipe /> tag below to remove.
+import { ChickenSnipe } from "@/components/ChickenSnipe";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -88,6 +90,8 @@ export default function RootLayout({
         <Nav />
         <main id="main">{children}</main>
         <Footer />
+        {/* EASTER EGG — delete this line + the import above to remove. */}
+        <ChickenSnipe />
       </body>
     </html>
   );
